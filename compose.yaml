@@ -5,10 +5,12 @@ services:
     # Forward EVERY .env value into the container. The explicit `environment:`
     # list below still wins for the values it names — without this, any .env
     # value not listed there (e.g. OPENROUTER_API_KEY) silently never reached
-    # the app. Compose errors if .env is missing; the quickstart's
-    # `cp .env.example .env` creates it.
+    # the app. The file is optional so platforms that inject variables
+    # themselves (no .env in the checkout) can still parse this file; the
+    # quickstart's `cp .env.example .env` creates it for local use.
     env_file:
-      - .env
+      - path: .env
+        required: false
     # Anonymous usage heartbeat controls: docs/SELF_HOSTING_DOCKER.md#telemetry
     environment:
       # Required for local Docker self-hosting: exposes Compose env vars to cloudflare:workers bindings.
