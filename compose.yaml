@@ -1,6 +1,6 @@
 services:
   open-seo:
-    image: ghcr.io/every-app/open-seo:latest
+    image: ghcr.io/every-app/open-seo:v0.1.13
     restart: unless-stopped
     # Anonymous usage heartbeat controls: docs/SELF_HOSTING_DOCKER.md#telemetry
     #
